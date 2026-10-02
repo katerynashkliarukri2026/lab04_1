@@ -1,20 +1,69 @@
-// lab04_1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <cmath>
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int k, N, i;
+    double P;
+
+    cout << "k = ";
+    cin >> k;
+
+    cout << "N = ";
+    cin >> N;
+
+    // 1) while
+    P = 1;
+    i = k;
+
+    while (i <= N)
+    {
+        P *= (pow(sin(1.0 * i), 2) +
+            pow(cos(1.0 / i), 2)) / (1.0 * i * i);
+        i++;
+    }
+
+    cout << P << endl;
+
+
+    // 2) do...while
+    P = 1;
+    i = k;
+
+    do
+    {
+        P *= (pow(sin(1.0 * i), 2) +
+            pow(cos(1.0 / i), 2)) / (1.0 * i * i);
+        i++;
+    } while (i <= N);
+
+    cout << P << endl;
+
+
+    // 3) for (i++)
+    P = 1;
+
+    for (i = k; i <= N; i++)
+    {
+        P *= (pow(sin(1.0 * i), 2) +
+            pow(cos(1.0 / i), 2)) / (1.0 * i * i);
+    }
+
+    cout << P << endl;
+
+
+    // 4) for (i--)
+    P = 1;
+
+    for (i = N; i >= k; i--)
+    {
+        P *= (pow(sin(1.0 * i), 2) +
+            pow(cos(1.0 / i), 2)) / (1.0 * i * i);
+    }
+
+    cout << P << endl;
+
+    return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
